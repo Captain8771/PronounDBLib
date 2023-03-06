@@ -13,6 +13,7 @@ internal class PronounDBResponse
 // ReSharper disable once UnusedType.Global
 public class PronounDBClient
 {
+    private readonly Version version = new Version(1, 0, 0);
     private readonly HttpClient Client = new HttpClient();
     private readonly string BaseUrl;
     private readonly bool Capitalize;
@@ -78,10 +79,27 @@ public class PronounDBClient
     /// <summary>
     /// Gets the pronouns of a Twitter user.
     /// </summary>
-    /// <param name="Id"></param>
+    /// <remarks>
+    /// This calls the tweeterid.com api to convert the username to an ID.
+    /// </remarks>
+    /// <param name="Id">The username of the twitter user</param>
     /// <returns>The pronouns of the user, as a string.</returns>
     public async Task<string> GetTwitterPronounsAsync(string Id)
     {
+        // we have to convert the username to an ID using tweeterid.com
+        // damn you pronoundb
+        HttpRequestMessage request =
+            new HttpRequestMessage(HttpMethod.Post, $"https://tweeterid.com/ajax.php");
+        // body is x-www-form-urlencoded
+        request.Content = new FormUrlEncodedContent(new Dictionary<string, string>()
+        {
+            { "input", Id }
+        });
+        // make our user agent include PronounDBLib so they know we're using their api
+        // while this (probably) isn't required, it's nice to be nice.
+        request.Headers.Add("User-Agent", $"PronounDBLib/{version} (https://github.com/Captain8771/PronounDBLib)");
+        HttpResponseMessage responseMessage = await Client.SendAsync(request);
+        Id = await responseMessage.Content.ReadAsStringAsync();
         return await GetPronounsGeneric("twitter", Id);
     }
     

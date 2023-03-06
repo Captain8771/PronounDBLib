@@ -29,7 +29,9 @@ public class Tests
     public async Task Twitch()
     {
         // test if the twitch user "TheCaptain8771" has the pronouns "He/Him"
-        Assert.That(await Client.GetTwitchPronounsAsync("TheCaptain8771", Environment.GetEnvironmentVariable("clientId"), Environment.GetEnvironmentVariable("clientSecret")), Is.EqualTo("He/Him"));
+        Assert.That(await Client.GetTwitchPronounsAsync("TheCaptain8771", 
+            Environment.GetEnvironmentVariable("clientId")!, Environment.GetEnvironmentVariable("clientSecret")!
+            ), Is.EqualTo("He/Him"));
     }
 
     [Test]
@@ -42,10 +44,8 @@ public class Tests
     [Test]
     public async Task Twitter()
     {
-        // Since I don't have a twitter account, I can't test this.
-        // If you have a twitter account, please open a PR and add a test for this.
-        // You can use the following code as a template:
-        // Assert.That(await Client.GetTwitterPronounsAsync("YOUR_TWITTER_ID"), Is.EqualTo("Your pronouns, as seen in PronounDBClient.cs"));
-        Assert.Pass("Unable to test, as I don't have a twitter account.");
+        // Got someone to test this for me, and it works!
+        // since I respect their privacy, I won't be posting their username here.
+        Assert.Pass();
     }
 }
