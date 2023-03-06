@@ -26,6 +26,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       env:
-        clientId: ${{ secrets.CLIENTID }}
-        clientSecret:  ${{ secrets.CLIENTSECRET }}
+        clientId: ${{ env.CLIENTID }}
+        clientSecret:  ${{ env.CLIENTSECRET }}
       run: dotnet test --no-build --verbosity normal
