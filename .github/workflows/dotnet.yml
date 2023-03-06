@@ -10,12 +10,11 @@ on:
     branches: [ "master" ]
     
 
-env:
-  clientId: ${{ secrets.CLIENTID }}
-  clientSecret:  ${{ secrets.CLIENTSECRET }}
+ 
 
 jobs:
   build:
+    environment: Test
 
     runs-on: ubuntu-latest
 
@@ -30,4 +29,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
+      env:
+        clientId: ${{ secrets.CLIENTID }}
+        clientSecret:  ${{ secrets.CLIENTSECRET }}
       run: dotnet test --no-build --verbosity normal
