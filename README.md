@@ -1,4 +1,4 @@
-# PronounDBLib
+# PronounDBLib [![.NET](https://github.com/Captain8771/PronounDBLib/actions/workflows/dotnet.yml/badge.svg?branch=master)](https://github.com/Captain8771/PronounDBLib/actions/workflows/dotnet.yml)
  
 Wrapper for https://pronoundb.org in C#
 
