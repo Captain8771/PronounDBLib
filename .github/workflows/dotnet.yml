@@ -11,8 +11,8 @@ on:
     
 
 env:
-  clientId: ${{ env.CLIENTID }}
-  clientSecret:  ${{ env.CLIENTSECRET }}
+  clientId: ${{ secrets.CLIENTID }}
+  clientSecret:  ${{ secrets.CLIENTSECRET }}
 
 jobs:
   build:
