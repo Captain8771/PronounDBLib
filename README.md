@@ -7,7 +7,7 @@ Wrapper for https://pronoundb.org in C#
     - `.GetMinecraftPronounsAsync(minecraft uuid)`
     - `.GetDiscordPronounsAsync(discord id)`    
     - `.GetGithubPronounsAsync(github username)`    
-    - `.GetTwitterPronounsAsync(twitter username)` (untested, see testing file for details.)     
+    - `.GetTwitterPronounsAsync(twitter username)` (untested, see [this](https://github.com/Captain8771/PronounDBLib/blob/master/PronounDBLibTests/Tests.cs#L43-L49) for details)     
     - `.GetTwitchPronounsAsync(Twitch username, twitch client id, twitch client secret)` (I hate twitch api I hate twitch api I hate twitch api I hate twitch api)
 
 - Automatic conversion from github/twitch username to ID
