@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    environment: Test
+    environment: Tests
 
     runs-on: ubuntu-latest
 
