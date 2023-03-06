@@ -15,3 +15,4 @@ Wrapper for https://pronoundb.org in C#
 ### To-do
 - Bulk fetching
 
+ 
