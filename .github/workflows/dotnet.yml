@@ -8,6 +8,11 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+
+env:
+  clientId: ${{ env.CLIENTID }}
+  clientSecret:  ${{ env.CLIENTSECRET }}
 
 jobs:
   build:
@@ -25,7 +30,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      env:
-        clientId: ${{ env.CLIENTID }}
-        clientSecret:  ${{ env.CLIENTSECRET }}
       run: dotnet test --no-build --verbosity normal
